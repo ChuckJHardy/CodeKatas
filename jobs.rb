@@ -1,3 +1,29 @@
+# JobCollection: Accepts String of Jobs
+#
+# jobs - Array of Job Objects
+#
+# Examples
+#
+#   new('a, b => c')
+#   # => <JobCollection:0x0 @arg="a, b => c">
+#
+# Returns Array of Job Objects
+class JobCollection
+  def initialize(arg)
+    @arg = arg
+  end
+
+  def jobs
+    split_string.inject([]) { |acc, str| acc << Job.new(str) }
+  end
+
+  private
+
+  def split_string
+    @arg.split(',')
+  end
+end
+
 # Job: Accepts Job String with our without a dependency
 #
 # dependency? - Job has a dependency
