@@ -2,7 +2,7 @@ require 'rspec'
 require_relative '../jobs'
 
 describe 'Acceptance Tests' do
-  subject { Jobs.new(given_structure) }
+  subject { Jobs.new(given_structure).sequence }
 
   context 'No Jobs' do
     let(:given_structure) { '' }
@@ -24,7 +24,7 @@ describe 'Acceptance Tests' do
     end
 
     context 'Multiple Jobs' do
-      let(:given_structure) { 'abc' }
+      let(:given_structure) { 'a, b, c' }
       let(:expected_response) { 'abc' }
 
       it 'returns sequence consisting of all jobs' do
@@ -35,7 +35,7 @@ describe 'Acceptance Tests' do
 
   context 'Dependencies' do
     context 'Single' do
-      let(:given_structure) { 'ab => cc' }
+      let(:given_structure) { 'a, b => c, c' }
       let(:expected_response) { 'acb' }
 
       it 'returns sequence of jobs in expected order' do
@@ -44,8 +44,8 @@ describe 'Acceptance Tests' do
     end
 
     context 'Multiple' do
-      let(:given_structure) { 'ab => cc => fd => ae => bf' }
-      let(:expected_response) { 'adfcbef' }
+      let(:given_structure) { 'a, b => c, c => f, d => a, e => b, f' }
+      let(:expected_response) { 'adfcbe' }
 
       it 'returns sequence of jobs in expected order' do
         subject.should eql(expected_response)
@@ -53,16 +53,16 @@ describe 'Acceptance Tests' do
     end
 
     context 'On Self' do
-      let(:given_structure) { 'abc => c' }
-      let(:expected_response) { "Jobs can't depend on themselves." }
+      let(:given_structure) { 'a, b, c => c' }
+      let(:error_msg) { "Jobs can't depend on themselves." }
 
       it 'returns expected error' do
-        subject.should eql(expected_response)
+        expect { subject }.to raise_error(Job::SelfDependentError, error_msg)
       end
     end
 
     context 'Circular' do
-      let(:given_structure) { 'ab => cc => fd => aef => b' }
+      let(:given_structure) { 'a, b => c, c => f, d => a, e, f => b' }
       let(:expected_response) { "jobs can't have circular dependencies." }
 
       it 'returns expected error' do
