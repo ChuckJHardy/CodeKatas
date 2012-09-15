@@ -1,5 +1,27 @@
 require 'rspec'
-require 'jobs'
+require_relative '../jobs'
+
+describe Error do
+  context 'SelfDependentError' do
+    let(:expected_response) { "Jobs can't depend on themselves." }
+
+    subject { Error::SelfDependencyError.new }
+
+    it 'raises with expected message' do
+      subject.message.should eql(expected_response)
+    end
+  end
+
+  context 'CircularDependencyError' do
+    let(:expected_response) { "Jobs can't have circular dependencies." }
+
+    subject { Error::CircularDependencyError.new }
+
+    it 'raises with expected message' do
+      subject.message.should eql(expected_response)
+    end
+  end
+end
 
 describe Jobs do
   let(:jobs) { Jobs.new(arg) }
@@ -39,13 +61,26 @@ describe Jobs do
   end
 
   context '#sequence' do
-    let(:arg) { 'a => b, c => d' }
-    let(:expected_response) { 'badc' }
+    context 'Valid' do
+      let(:arg) { 'a => b, c => d' }
+      let(:expected_response) { 'badc' }
 
-    subject { jobs.sequence }
+      subject { jobs.sequence }
 
-    it 'returns string of sequenced jobs' do
-      subject.should eql(expected_response)
+      it 'returns string of sequenced jobs' do
+        subject.should eql(expected_response)
+      end
+    end
+
+    context 'Circular Dependency Error' do
+      let(:arg) { 'a, b => c, c => f, d => a, e, f => b' }
+      let(:error_msg) { "Jobs can't have circular dependencies." }
+
+      subject { jobs.sequence }
+
+      it 'returns string of sequenced jobs' do
+        expect { subject }.to raise_error(Error::CircularDependencyError, error_msg)
+      end
     end
   end
 end
@@ -80,17 +115,8 @@ end
 
 describe Job do
   let(:job) { Job.new(arg) }
-  let(:self_dependent_error) { Job::SelfDependentError.new }
 
   subject { job }
-
-  context '#SelfDependentError' do
-    let(:expected_response) { "Jobs can't depend on themselves." }
-
-    it 'returns expected error message' do
-      self_dependent_error.message.should eql(expected_response)
-    end
-  end
 
   context '#job' do
     context 'without dependency' do

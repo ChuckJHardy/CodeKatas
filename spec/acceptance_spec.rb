@@ -45,7 +45,7 @@ describe 'Acceptance Tests' do
 
     context 'Multiple' do
       let(:given_structure) { 'a, b => c, c => f, d => a, e => b, f' }
-      let(:expected_response) { 'adfcbe' }
+      let(:expected_response) { 'afcbde' }
 
       it 'returns sequence of jobs in expected order' do
         subject.should eql(expected_response)
@@ -57,16 +57,18 @@ describe 'Acceptance Tests' do
       let(:error_msg) { "Jobs can't depend on themselves." }
 
       it 'returns expected error' do
-        expect { subject }.to raise_error(Job::SelfDependentError, error_msg)
+        expect { subject }.to raise_error(Error::SelfDependencyError, error_msg)
       end
     end
 
     context 'Circular' do
+      # Dependency is after job already
+      # If Dependency exists before already, do nothing
       let(:given_structure) { 'a, b => c, c => f, d => a, e, f => b' }
-      let(:expected_response) { "jobs can't have circular dependencies." }
+      let(:error_msg) { "Jobs can't have circular dependencies." }
 
       it 'returns expected error' do
-        subject.should eql(expected_response)
+        expect { subject }.to raise_error(Error::CircularDependencyError, error_msg)
       end
     end
   end

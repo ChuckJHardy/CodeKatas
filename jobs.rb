@@ -1,3 +1,30 @@
+# JobError: Custom Error Class
+#
+# Examples
+#
+#   raise SelfDependencyError
+#   # => JobError::SelfDependencyError
+#          Jobs can't depend on themselves.
+#
+#   raise CircularDependencyError
+#   # => JobError::CircularDependencyError
+#          Jobs can't have circular dependencies.
+#
+# Raises JobError
+module Error
+  class SelfDependencyError < StandardError
+    def initialize(msg = "Jobs can't depend on themselves.")
+      super(msg)
+    end
+  end
+
+  class CircularDependencyError < StandardError
+    def initialize(msg = "Jobs can't have circular dependencies.")
+      super(msg)
+    end
+  end
+end
+
 # Jobs: Accepts String of Jobs
 #
 # collect - Array of sequenced Jobs
@@ -20,19 +47,21 @@ class Jobs
 
   def collect
     job_collection.inject([]) do |acc, j|
-      index = acc.index(j.job)
-      if j.dependency?
-        if index
-          acc.insert(index, j.dependency)
-        else
-          acc << j.dependency
-          acc << j.job
-        end
-      else
-        acc << j.job unless index
-      end
+      @acc, @j = acc, j
 
-      acc
+       if j.dependency?
+          if job_exists?
+            validate
+            acc.insert(job_position, dependency)
+          else
+            acc << dependency unless dependency_exists?
+            acc << job
+          end
+       else
+         acc << job unless job_exists?
+       end
+
+       acc
     end
   end
 
@@ -40,6 +69,40 @@ class Jobs
 
   def job_collection
     JobCollection.new(@arg).jobs
+  end
+
+  def job
+    @j.job
+  end
+
+  def dependency
+    @j.dependency
+  end
+
+  def job_position
+    @acc.index(job)
+  end
+
+  def dependency_position
+    @acc.index(dependency)
+  end
+
+  def job_exists?
+    job_position
+  end
+
+  def dependency_exists?
+    dependency_position
+  end
+
+  def circular?
+    if dpos = dependency_position
+      dpos > job_position
+    end
+  end
+
+  def validate
+    raise Error::CircularDependencyError if circular?
   end
 end
 
@@ -84,12 +147,6 @@ end
 # Returns Job Object
 
 class Job
-  class SelfDependentError < StandardError
-    def initialize(msg = "Jobs can't depend on themselves.")
-      super(msg)
-    end
-  end
-
   def initialize(arg)
     @arg = arg
     validate
@@ -114,7 +171,7 @@ class Job
   private
 
   def validate
-    raise SelfDependentError if self_dependent?
+    raise Error::SelfDependencyError if self_dependent?
   end
 
   def split_string
