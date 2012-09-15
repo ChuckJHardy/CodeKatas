@@ -1,7 +1,7 @@
 ### OnTheBeach Developer Test
 
 #### Installation
-    git clone xxx ~/tmp/OTBDevTest
+    git clone git@github.com:ChuckJHardy/OTBDevTest.git ~/tmp/OTBDevTest
     gem install rspec
     rspec
 
