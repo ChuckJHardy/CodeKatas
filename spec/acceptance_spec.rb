@@ -62,8 +62,6 @@ describe 'Acceptance Tests' do
     end
 
     context 'Circular' do
-      # Dependency is after job already
-      # If Dependency exists before already, do nothing
       let(:given_structure) { 'a, b => c, c => f, d => a, e, f => b' }
       let(:error_msg) { "Jobs can't have circular dependencies." }
 
