@@ -14,7 +14,7 @@
 		D1D96BC81881768D0007D12D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D96BC71881768D0007D12D /* main.m */; };
 		D1D96BCC1881768D0007D12D /* OTBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D96BCB1881768D0007D12D /* OTBAppDelegate.m */; };
 		D1D96BCF1881768D0007D12D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1D96BCD1881768D0007D12D /* Main.storyboard */; };
-		D1D96BD21881768D0007D12D /* OTBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D96BD11881768D0007D12D /* OTBViewController.m */; };
+		D1D96BD21881768D0007D12D /* OTBTasksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D96BD11881768D0007D12D /* OTBTasksViewController.m */; };
 		D1D96BD41881768D0007D12D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1D96BD31881768D0007D12D /* Images.xcassets */; };
 		D1D96BDB1881768E0007D12D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D96BDA1881768E0007D12D /* XCTest.framework */; };
 		D1D96BDC1881768E0007D12D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D96BBB1881768D0007D12D /* Foundation.framework */; };
@@ -45,8 +45,8 @@
 		D1D96BCA1881768D0007D12D /* OTBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OTBAppDelegate.h; sourceTree = "<group>"; };
 		D1D96BCB1881768D0007D12D /* OTBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OTBAppDelegate.m; sourceTree = "<group>"; };
 		D1D96BCE1881768D0007D12D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D1D96BD01881768D0007D12D /* OTBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OTBViewController.h; sourceTree = "<group>"; };
-		D1D96BD11881768D0007D12D /* OTBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OTBViewController.m; sourceTree = "<group>"; };
+		D1D96BD01881768D0007D12D /* OTBTasksViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OTBTasksViewController.h; sourceTree = "<group>"; };
+		D1D96BD11881768D0007D12D /* OTBTasksViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OTBTasksViewController.m; sourceTree = "<group>"; };
 		D1D96BD31881768D0007D12D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D1D96BD91881768E0007D12D /* TasksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TasksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1D96BDA1881768E0007D12D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -115,8 +115,8 @@
 				D1D96BCA1881768D0007D12D /* OTBAppDelegate.h */,
 				D1D96BCB1881768D0007D12D /* OTBAppDelegate.m */,
 				D1D96BCD1881768D0007D12D /* Main.storyboard */,
-				D1D96BD01881768D0007D12D /* OTBViewController.h */,
-				D1D96BD11881768D0007D12D /* OTBViewController.m */,
+				D1D96BD01881768D0007D12D /* OTBTasksViewController.h */,
+				D1D96BD11881768D0007D12D /* OTBTasksViewController.m */,
 				D1D96BD31881768D0007D12D /* Images.xcassets */,
 				D1D96BC21881768D0007D12D /* Supporting Files */,
 			);
@@ -251,7 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1D96BCC1881768D0007D12D /* OTBAppDelegate.m in Sources */,
-				D1D96BD21881768D0007D12D /* OTBViewController.m in Sources */,
+				D1D96BD21881768D0007D12D /* OTBTasksViewController.m in Sources */,
 				D1D96BC81881768D0007D12D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,6 +461,7 @@
 				D1D96BEC1881768E0007D12D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D1D96BED1881768E0007D12D /* Build configuration list for PBXNativeTarget "TasksTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +470,7 @@
 				D1D96BEF1881768E0007D12D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

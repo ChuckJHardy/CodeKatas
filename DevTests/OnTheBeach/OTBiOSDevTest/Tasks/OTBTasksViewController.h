@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OTBViewController : UIViewController
+@interface OTBTasksViewController : UIViewController
 
 @end

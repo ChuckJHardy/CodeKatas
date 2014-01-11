@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Chuck J Hardy. All rights reserved.
 //
 
-#import "OTBViewController.h"
+#import "OTBTasksViewController.h"
 
-@interface OTBViewController ()
+@interface OTBTasksViewController ()
 
 @end
 
-@implementation OTBViewController
+@implementation OTBTasksViewController
 
 - (void)viewDidLoad
 {
