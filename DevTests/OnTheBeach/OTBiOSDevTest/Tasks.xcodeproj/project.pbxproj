@@ -79,6 +79,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D1951D08188181C300F4890C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D1D96BD01881768D0007D12D /* OTBTasksViewController.h */,
+				D1D96BD11881768D0007D12D /* OTBTasksViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		D1D96BAF1881768D0007D12D = {
 			isa = PBXGroup;
 			children = (
@@ -112,11 +121,10 @@
 		D1D96BC11881768D0007D12D /* Tasks */ = {
 			isa = PBXGroup;
 			children = (
+				D1951D08188181C300F4890C /* Controllers */,
 				D1D96BCA1881768D0007D12D /* OTBAppDelegate.h */,
 				D1D96BCB1881768D0007D12D /* OTBAppDelegate.m */,
 				D1D96BCD1881768D0007D12D /* Main.storyboard */,
-				D1D96BD01881768D0007D12D /* OTBTasksViewController.h */,
-				D1D96BD11881768D0007D12D /* OTBTasksViewController.m */,
 				D1D96BD31881768D0007D12D /* Images.xcassets */,
 				D1D96BC21881768D0007D12D /* Supporting Files */,
 			);
