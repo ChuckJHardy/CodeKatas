@@ -5,6 +5,7 @@ class Event < ActiveRecord::Base
 
   scope :valid, -> { where('starts_at > ?', Time.current) }
   scope :expired, -> { where('starts_at <= ?', Time.current) }
+  scope :category, -> id { where(event_category_id: id) }
 
   def self.by_place_id(place_id)
     where(places: {id: place_id}).joins(:places)
