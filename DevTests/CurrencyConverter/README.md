@@ -5,7 +5,7 @@
 ### Solution
 
 * [FXRate Service](https://bitbucket.org/ChuckJHardy/fxrate)
-  * Persist data for a given provider and expose searched rate.
+  * Persists data for a given provider and expose searched rate.
 * [FXRate Wrapper](https://bitbucket.org/ChuckJHardy/fxratewrapper)
   * Wrapper Gem called `ExchangeRate` which exposes FXRate Service functionally.
 * [FXRate Demo App](https://bitbucket.org/ChuckJHardy/fxratedemo)
@@ -18,3 +18,8 @@
 ### Note
 
 * Each readme contains features that were excluded.
+
+### Resources
+
+1. [ECD Statistical Data Warehouse](https://sdw.ecb.europa.eu/curConverter.do)
+ 	* Use to confirm currency conversion accuracy for ECB provider
