@@ -11,6 +11,10 @@
 * [FXRate Demo App](https://goo.gl/mmZTWi)
   * Demo Application showing the use of the FXRate Service.
 
+### Videos
+
+* [Setup](./setup.mov)
+
 ### Specification
 
 [Original PDF Spec](./test.pdf)
