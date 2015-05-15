@@ -4,11 +4,11 @@
 
 ### Solution
 
-* [FXRate Service](https://bitbucket.org/ChuckJHardy/fxrate)
+* [FXRate Service](https://goo.gl/gc8Soc)
   * Persists data for a given provider and expose searched rate.
-* [FXRate Wrapper](https://bitbucket.org/ChuckJHardy/fxratewrapper)
+* [FXRate Wrapper](https://goo.gl/89qcip)
   * Wrapper Gem called `ExchangeRate` which exposes FXRate Service functionally.
-* [FXRate Demo App](https://bitbucket.org/ChuckJHardy/fxratedemo)
+* [FXRate Demo App](https://goo.gl/mmZTWi)
   * Demo Application showing the use of the FXRate Service.
 
 ### Specification
