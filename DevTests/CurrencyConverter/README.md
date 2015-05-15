@@ -14,6 +14,7 @@
 ### Videos
 
 * [Setup](./setup.mov)
+* [Specification Overview](./spec_overview.mov)
 
 ### Specification
 
@@ -21,7 +22,7 @@
 
 ### Note
 
-* Each readme contains features that were excluded.
+* Each readme contains features that were deliberately excluded.
 
 ### Resources
 
