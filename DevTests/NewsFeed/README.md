@@ -15,6 +15,28 @@ Write supporting tests using rspec.
 Share your explain analyse output and your db schema.
 Implement the rails MVC pattern for this feature.
 
+### Example Response
+
+    {
+      "posts":[
+        {
+          "id":10,
+          "title":"Dicta sunt in excepturi sint odio ipsum et.",
+          "body":"Minima ex consequatur repellendus. Molestiae tenetur consequatur qui possimus voluptates non ducimus. Ea occaecati qui assumenda quis velit. In suscipit qui minima qui et dolor at.",
+          "user":{
+            "id":1,
+            "name":"Chuck J Hardy",
+            "latitude":"51.5034",
+            "longitude":"-0.1276"
+          }
+        }
+      ]
+    }
+
+### Developer Comments
+
+- [JSON API](http://jsonapi.org/) excluded for simplicity of response.
+
 ### Tasks
 
 - [x] Generate Rails Application
@@ -23,3 +45,8 @@ Implement the rails MVC pattern for this feature.
 - [x] Pagination `/users/1/posts?page=2`
 - [ ] Benchmark
 - [ ] Export final explain analysis
+
+### Future Tasks
+
+- [ ] Versioning
+- [ ] Pagination metadata
