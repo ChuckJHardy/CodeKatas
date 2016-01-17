@@ -41,8 +41,11 @@ Run RSpec, Brakeman and Rubocop:
 
 Run Performance Specs:
 
-    # Checks performance over 1 million posts
     $ bin/rspec spec/performance --tag performance
+
+Example output showing the performance results from paging through 1000 pages to view 10,000 posts.
+
+![Performance Example](./public/performance-example.png)
 
 ### Example Response
 
