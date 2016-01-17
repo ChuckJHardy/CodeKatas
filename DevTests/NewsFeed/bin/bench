@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+
+reset="\033[0m"
+green="\033[32m"
+
+function warn {
+  echo "$1" > /dev/stderr
+}
+
+function info {
+  warn "$green$1$reset"
+}
+
+set -e
+
+info "
+------------------------------------
+* Posts
+------------------------------------"
+ab -c 1 -n 100 http://localhost:3000/users/1/posts
