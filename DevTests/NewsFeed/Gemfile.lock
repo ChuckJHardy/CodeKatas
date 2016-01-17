@@ -135,6 +135,8 @@ GEM
       rspec-mocks (~> 3.1.0)
       rspec-support (~> 3.1.0)
     rspec-support (3.1.2)
+    shoulda-matchers (3.0.1)
+      activesupport (>= 4.0.0)
     simplecov (0.11.1)
       docile (~> 1.1.0)
       json (~> 1.8)
@@ -165,6 +167,7 @@ DEPENDENCIES
   puma
   rails!
   rspec-rails
+  shoulda-matchers
   simplecov
   spring
   tzinfo-data
