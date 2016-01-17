@@ -17,7 +17,7 @@ Implement the rails MVC pattern for this feature.
 
 ### Tasks
 
-- [ ] Generate Rails Application
+- [x] Generate Rails Application
 - [ ] User (name, latitude, longitude, avatar) `/users`
 - [ ] Post (Title, Description) `/users/1/posts`
 - [ ] Pagination `/users/1/posts?page=2`
