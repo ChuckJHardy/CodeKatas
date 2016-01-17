@@ -17,12 +17,12 @@ Implement the rails MVC pattern for this feature.
 - [x] User (name, latitude, longitude, avatar)
 - [x] Post (Title, Description) `/posts`
 - [x] Pagination `posts?page=2&per_page=10`
-- [ ] Benchmark
-- [ ] Export final explain analysis
+- [x] Benchmark
+- [x] Export final explain analysis
 
 Developer Comments:
 
-- [JSON API](http://jsonapi.org/) excluded for simplicity of response.
+- [JSON API](http://jsonapi.org/) excluded for simplicity of response. The cost of the user include for posts would be removed.
 - Unused endpoints omitted for clarity.
 
 ### Installation
@@ -63,8 +63,36 @@ Run Performance Specs:
       ]
     }
 
+### Explain Analyse
+
+Posts:
+
+    $ EXPLAIN ANALYZE SELECT posts.* FROM posts LIMIT 10 OFFSET 20;
+
+[View Results](http://explain.depesz.com/s/iduj)
+
+    Limit  (cost=0.84..1.25 rows=10 width=221) (actual time=0.011..0.013 rows=10 loops=1)
+      ->  Seq Scan on posts  (cost=0.00..46.00 rows=1100 width=221) (actual time=0.006..0.008 rows=30 loops=1)
+    Planning time: 0.077 ms
+    Execution time: 0.035 ms
+    (4 rows)
+
+Nested User (remove with JSON-API adapter):
+
+    $ EXPLAIN ANALYZE SELECT users.* FROM users WHERE users.id IN (2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
+
+[View Results](http://explain.depesz.com/s/N7Ls)
+
+    Index Scan using users_pkey on users  (cost=0.29..26.96 rows=10 width=112) (actual time=0.024..0.039 rows=10 loops=1)
+      Index Cond: (id = ANY ('{2,3,4,5,6,7,8,9,10,11}'::integer[]))
+    Planning time: 0.556 ms
+    Execution time: 0.088 ms
+    (4 rows)
+
+
 ### Todo
 
+- [ ] Serializers Cache
 - [ ] Versioning
 - [ ] Pagination metadata
 - [ ] Users CRUD
