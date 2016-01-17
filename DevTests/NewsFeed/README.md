@@ -15,3 +15,11 @@ Write supporting tests using rspec.
 Share your explain analyse output and your db schema.
 Implement the rails MVC pattern for this feature.
 
+### Tasks
+
+- [ ] Generate Rails Application
+- [ ] User (name, latitude, longitude, avatar) `/users`
+- [ ] Post (Title, Description) `/users/1/posts`
+- [ ] Pagination `/users/1/posts?page=2`
+- [ ] Benchmark
+- [ ] Export final explain analysis
