@@ -1,7 +1,5 @@
 ## News Feed
 
-### Brief
-
 Managing lists of content in a social network is a required technical challenge and can be solved in a number of ways. Imagine a feature like the Facebook news feed. An infinitely scrolling list of items where each user has potentially millions of items.
 
 Implement an active model or set of models and associated route/controller to match this feature. The model should scale to millions of records and still respond within an acceptable time frame. It should include the users name, their geo location and their profile picture.
@@ -15,8 +13,35 @@ Write supporting tests using rspec.
 Share your explain analyse output and your db schema.
 Implement the rails MVC pattern for this feature.
 
+- [x] Generate Rails Application
+- [x] User (name, latitude, longitude, avatar) `/users`
+- [x] Post (Title, Description) `/users/1/posts`
+- [x] Pagination `/users/1/posts?page=2`
+- [ ] Benchmark
+- [ ] Export final explain analysis
+
+Developer Comments:
+
+- [JSON API](http://jsonapi.org/) excluded for simplicity of response.
+- Unused endpoints omitted for clarity.
+
+### Installation
+
+Ruby 2.x and PostgreSQL 9.x are required:
+
+    $ bin/setup
+
+Start Server:
+
+    $ bin/rails server
+
+Run RSpec, Brakeman and Rubocop:
+
+    $ bin/test
+
 ### Example Response
 
+	# GET /users/1/posts
     {
       "posts":[
         {
@@ -33,20 +58,9 @@ Implement the rails MVC pattern for this feature.
       ]
     }
 
-### Developer Comments
-
-- [JSON API](http://jsonapi.org/) excluded for simplicity of response.
-
-### Tasks
-
-- [x] Generate Rails Application
-- [x] User (name, latitude, longitude, avatar) `/users`
-- [x] Post (Title, Description) `/users/1/posts`
-- [x] Pagination `/users/1/posts?page=2`
-- [ ] Benchmark
-- [ ] Export final explain analysis
-
-### Future Tasks
+### Todo
 
 - [ ] Versioning
 - [ ] Pagination metadata
+- [ ] Users CRUD
+- [ ] Complete Posts CRUD

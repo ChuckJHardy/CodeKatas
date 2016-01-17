@@ -1,0 +1,32 @@
+#!/usr/bin/env sh
+
+reset="\033[0m"
+green="\033[32m"
+
+function warn {
+  echo "$1" > /dev/stderr
+}
+
+function info {
+  warn "$green$1$reset"
+}
+
+set -e
+
+info "
+------------------------------------
+* Brakeman Security Check
+------------------------------------"
+bin/brakeman
+
+info "
+------------------------------------
+* Rubocop Code Analyzer
+------------------------------------"
+bin/rubocop
+
+info "
+------------------------------------
+* RSpec Test Suite
+------------------------------------"
+bin/rspec
