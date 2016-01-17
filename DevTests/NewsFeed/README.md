@@ -19,7 +19,7 @@ Implement the rails MVC pattern for this feature.
 
 - [x] Generate Rails Application
 - [x] User (name, latitude, longitude, avatar) `/users`
-- [ ] Post (Title, Description) `/users/1/posts`
+- [x] Post (Title, Description) `/users/1/posts`
 - [ ] Pagination `/users/1/posts?page=2`
 - [ ] Benchmark
 - [ ] Export final explain analysis
