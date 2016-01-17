@@ -5,6 +5,8 @@ gem 'rails', github: 'rails/rails'
 gem 'pg', '~> 0.18'
 gem 'puma'
 gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
+gem 'kaminari'
+gem 'faker'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
@@ -15,7 +17,6 @@ group :development, :test do
 end
 
 group :test do
-  gem 'faker'
   gem 'json_matchers'
   gem 'shoulda-matchers'
   gem 'database_cleaner'

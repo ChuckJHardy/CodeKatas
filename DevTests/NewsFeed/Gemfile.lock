@@ -114,6 +114,9 @@ GEM
     json_matchers (0.5.0)
       activesupport (>= 3.0.0)
       json-schema (~> 2.2.5)
+    kaminari (0.16.3)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -189,6 +192,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   json_matchers
+  kaminari
   pg (~> 0.18)
   puma
   rails!
