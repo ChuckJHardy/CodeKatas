@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/flyerhzm/bullet.git
+  revision: 272604a4c1b9a9bdaca2cb7821ce0c1cf0f99cfe
+  specs:
+    bullet (5.0.0)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.9.0)
+
+GIT
   remote: git://github.com/rails-api/active_model_serializers.git
   revision: b9f4720cbdb19764337370775751c81d0c4cd8e6
   specs:
@@ -178,6 +186,7 @@ GEM
     thread_safe (0.3.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    uniform_notifier (1.9.0)
     websocket-driver (0.6.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -187,6 +196,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers!
+  bullet!
   byebug
   database_cleaner
   factory_girl_rails

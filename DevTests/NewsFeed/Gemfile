@@ -12,6 +12,7 @@ gem 'faker'
 # gem 'rack-cors'
 
 group :development, :test do
+  gem 'bullet', github: 'flyerhzm/bullet'
   gem 'byebug' # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'rspec-rails'
 end
