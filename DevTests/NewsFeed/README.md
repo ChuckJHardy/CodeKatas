@@ -46,22 +46,25 @@ Run Performance Specs:
 
 ### Example Response
 
-	# GET /posts
+GET `/posts`
+``` json
+{
+  "posts":[
     {
-      "posts":[
-        {
-          "id":10,
-          "title":"Dicta sunt in excepturi sint odio ipsum et.",
-          "body":"Minima ex consequatur repellendus. Molestiae tenetur consequatur qui possimus voluptates non ducimus. Ea occaecati qui assumenda quis velit. In suscipit qui minima qui et dolor at.",
-          "user":{
-            "id":1,
-            "name":"Chuck J Hardy",
-            "latitude":"51.5034",
-            "longitude":"-0.1276"
-          }
-        }
-      ]
+      "id": 10,
+      "title": "Dicta sunt in excepturi sint odio ipsum et.",
+      "body": "Minima ex consequatur repellendus. Molestiae tenetur consequatur qui possimus voluptates non ducimus. Ea occaecati qui assumenda quis velit. In suscipit qui minima qui et dolor at.",
+      "user":{
+        "id": 1,
+        "name": "Chuck J Hardy",
+        "avatar": "https://robohash.org/eniminconsequatur.png?size=300x300&set=set1",
+        "latitude": "51.5034",
+        "longitude": "-0.1276"
+      }
     }
+  ]
+}
+```
 
 ### Explain Analyse
 
