@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/rails-api/active_model_serializers.git
+  revision: b9f4720cbdb19764337370775751c81d0c4cd8e6
+  specs:
+    active_model_serializers (0.10.0.rc3)
+      actionpack (>= 4.0)
+      activemodel (>= 4.0)
+      railties (>= 4.0)
+
+GIT
   remote: git://github.com/rails/rails.git
   revision: 5d1b7c3b441654e8008dcd303f5367883ec660a6
   specs:
@@ -101,6 +110,10 @@ GEM
     hiredis (0.5.2)
     i18n (0.7.0)
     json (1.8.3)
+    json-schema (2.2.5)
+    json_matchers (0.5.0)
+      activesupport (>= 3.0.0)
+      json-schema (~> 2.2.5)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -170,10 +183,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers!
   byebug
   database_cleaner
   factory_girl_rails
   faker
+  json_matchers
   pg (~> 0.18)
   puma
   rails!
