@@ -1,0 +1,9 @@
+Style/Documentation:
+  Enabled: false
+AllCops:
+  Exclude:
+    - config/unicorn.rb
+    - db/**/*
+    - bin/*
+Rails:
+  Enabled: true

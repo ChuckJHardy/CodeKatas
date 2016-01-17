@@ -1,7 +1,7 @@
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe PostsController, type: :routing do
-  let(:user_id) { "22" }
+  let(:user_id) { '22' }
 
   it do
     expect(get: "users/#{user_id}/posts")
