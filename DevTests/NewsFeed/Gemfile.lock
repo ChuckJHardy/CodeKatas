@@ -78,6 +78,7 @@ GEM
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.0)
     diff-lcs (1.2.5)
+    docile (1.1.5)
     em-hiredis (0.3.0)
       eventmachine (~> 1.0)
       hiredis (~> 0.5.0)
@@ -134,6 +135,11 @@ GEM
       rspec-mocks (~> 3.1.0)
       rspec-support (~> 3.1.0)
     rspec-support (3.1.2)
+    simplecov (0.11.1)
+      docile (~> 1.1.0)
+      json (~> 1.8)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.0)
     spring (1.6.2)
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
@@ -159,6 +165,7 @@ DEPENDENCIES
   puma
   rails!
   rspec-rails
+  simplecov
   spring
   tzinfo-data
 
