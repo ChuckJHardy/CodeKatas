@@ -8,9 +8,9 @@ RSpec.describe 'Posts', type: :request do
     post
   end
 
-  describe 'GET /users/1/posts' do
+  describe 'GET /posts' do
     before do
-      get user_posts_path(post.user, format: :json, per_page: 1, page: 2)
+      get posts_path(post.user, format: :json, per_page: 1, page: 2)
     end
 
     it 'response with expected status code' do

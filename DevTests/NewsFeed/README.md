@@ -14,9 +14,9 @@ Share your explain analyse output and your db schema.
 Implement the rails MVC pattern for this feature.
 
 - [x] Generate Rails Application
-- [x] User (name, latitude, longitude, avatar) `/users`
-- [x] Post (Title, Description) `/users/1/posts`
-- [x] Pagination `/users/1/posts?page=2`
+- [x] User (name, latitude, longitude, avatar)
+- [x] Post (Title, Description) `/posts`
+- [x] Pagination `posts?page=2&per_page=10`
 - [ ] Benchmark
 - [ ] Export final explain analysis
 
@@ -39,9 +39,14 @@ Run RSpec, Brakeman and Rubocop:
 
     $ bin/test
 
+Run Performance Specs:
+
+    # Checks performance over 1 million posts
+    $ bin/rspec spec/performance --tag performance
+
 ### Example Response
 
-	# GET /users/1/posts
+	# GET /posts
     {
       "posts":[
         {
