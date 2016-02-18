@@ -1,0 +1,11 @@
+{
+  "type": "object",
+  "required": ["id", "name", "avatar", "latitude", "longitude"],
+  "properties": {
+    "id": { "type": "integer" },
+    "name": { "type": "string" },
+    "avatar": { "type": "string" },
+    "latitude": { "type": "string" },
+    "longitude": { "type": "string" }
+  }
+}
